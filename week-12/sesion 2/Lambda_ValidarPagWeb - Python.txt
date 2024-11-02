@@ -1,0 +1,65 @@
+import json
+from urllib.request import urlopen
+from urllib.error import HTTPError, URLError
+import boto3
+
+def lambda_handler(event, context):
+    # TODO implement
+    try:
+        ARN_SNS = 'arn:aws:sns:us-east-1:447891120606:TemaPagWebNoDisponible'
+        url = "http://gcolchado10.s3-website-us-east-1.amazonaws.com_/hola.html"
+        with urlopen(url) as response:
+            body = response.read()
+            statusCode = response.status
+        if statusCode == 200:
+            print("OK")
+            print(statusCode)
+            print(body)
+        else:
+            detalle_error = {
+                'statusCode': statusCode,
+                'error': body
+            }
+            # Publicar en SNS
+            sns_client = boto3.client('sns')
+            response_sns = sns_client.publish(
+                TopicArn = ARN_SNS,
+                Subject = 'Error en acceso a Página Web - ' + url,
+                Message = json.dumps(detalle_error)
+            )
+    
+    except HTTPError as error:
+        print(error.status, error.reason) # Publica en tema SNS para notificar
+        detalle_error = {
+            'statusCode': error.status,
+            'error': error.reason
+        }
+        # Publicar en SNS
+        sns_client = boto3.client('sns')
+        response_sns = sns_client.publish(
+            TopicArn = ARN_SNS,
+            Subject = 'Error en acceso a Página Web - ' + url,
+            Message = json.dumps(detalle_error)
+        )        
+    except URLError as error:
+        print(error.reason) # Publica en tema SNS para notificar
+        # Publicar en SNS
+        sns_client = boto3.client('sns')
+        response_sns = sns_client.publish(
+            TopicArn = ARN_SNS,
+            Subject = 'Error en acceso a Página Web - ' + url,
+            Message = str(error.reason)
+        )          
+    except TimeoutError:
+        print("Request timed out") # Publica en tema SNS para notificar
+        # Publicar en SNS
+        sns_client = boto3.client('sns')
+        response_sns = sns_client.publish(
+            TopicArn = ARN_SNS,
+            Subject = 'Error en acceso a Página Web - ' + url,
+            Message = "Request timed out"
+        )        
+
+    return {
+        'statusCode': 200
+    }

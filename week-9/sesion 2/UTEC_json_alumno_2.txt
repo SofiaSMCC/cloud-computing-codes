@@ -1,0 +1,17 @@
+{
+  "tenant_id": "UTEC",
+  "alumno_id": "202035215",
+  "alumno_datos": {
+	"nombre": "Carlos Carrasco",
+	"sexo": "M",
+	"fecha_nac": "2004-09-01",
+	"celular": "999736123",
+	"domicilio": {
+		"direcc": "Av. Arequipa 1028",
+		"distrito": "Lince",
+		"provincia": "Lima",
+		"departamento": "Lima",
+		"pais": "Perú"
+	} 
+  }
+}

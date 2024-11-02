@@ -1,0 +1,17 @@
+{
+  "tenant_id": "UTEC",
+  "alumno_id": "202099998",
+  "alumno_datos": {
+	"nombre": "Geraldo Colchado Ruiz",
+	"sexo": "M",
+	"fecha_nac": "2000-09-01",
+	"celular": "999736332",
+	"domicilio": {
+		"direcc": "Av. Javier Prado 158",
+		"distrito": "San Borja",
+		"provincia": "Lima",
+		"departamento": "Lima",
+		"pais": "Perú"
+	} 
+  }
+}

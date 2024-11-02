@@ -1,0 +1,17 @@
+{
+  "tenant_id": "UNIV2",
+  "alumno_id": "A2020F9856",
+  "alumno_datos": {
+	"nombre": "Victoria Gales",
+	"sexo": "F",
+	"fecha_nac": "2005-02-03",
+	"celular": "999736741",
+	"domicilio": {
+		"direcc": "Av. Javier Prado 1928",
+		"distrito": "San Borja",
+		"provincia": "Lima",
+		"departamento": "Lima",
+		"pais": "Perú"
+	} 
+  }
+}

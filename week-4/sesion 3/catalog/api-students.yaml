@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: API de Estudiantes
+  description: API para gestionar registros de estudiantes.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000
+    description: Servidor de desarrollo
+
+paths:
+  /students:
+    get:
+      summary: Obtener todos los estudiantes
+      responses:
+        '200':
+          description: Un arreglo JSON de estudiantes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    firstname:
+                      type: string
+                    lastname:
+                      type: string
+                    gender:
+                      type: string
+                    age:
+                      type: integer
+    post:
+      summary: Crear un nuevo estudiante
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                firstname:
+                  type: string
+                lastname:
+                  type: string
+                gender:
+                  type: string
+                age:
+                  type: integer
+      responses:
+        '200':
+          description: Estudiante creado exitosamente
+
+  /student/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Obtener un estudiante por ID
+      responses:
+        '200':
+          description: Un objeto de estudiante
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  firstname:
+                    type: string
+                  lastname:
+                    type: string
+                  gender:
+                    type: string
+                  age:
+                    type: integer
+        '404':
+          description: Estudiante no encontrado
+    put:
+      summary: Actualizar un estudiante por ID
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                firstname:
+                  type: string
+                lastname:
+                  type: string
+                gender:
+                  type: string
+                age:
+                  type: integer
+      responses:
+        '200':
+          description: Estudiante actualizado exitosamente
+        '404':
+          description: Estudiante no encontrado
+    delete:
+      summary: Eliminar un estudiante por ID
+      responses:
+        '200':
+          description: Estudiante eliminado exitosamente
+        '404':
+          description: Estudiante no encontrado
+

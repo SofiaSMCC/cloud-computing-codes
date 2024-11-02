@@ -1,0 +1,16 @@
+{
+  "tenant_id": [
+    "FAB1"
+  ],
+  "sensor_id": [
+    "CO2"
+  ],
+  "medicion": [
+    {
+      "numeric": [
+        ">",
+        800
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+docker run -d -p 8080:8080 -e SWAGGER_JSON=/catalog/api-students.yaml -v /home/ubuntu/catalog:/catalog swaggerapi/swagger-ui

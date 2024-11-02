@@ -1,0 +1,7 @@
+$ docker exec -it mongo_c bash
+$ mongosh
+use food
+db.createCollection("fruits")
+db.fruits.insertMany([ {name: "apple", origin: "usa", price: 5}, {name: "orange", origin: "italy", price: 3}, {name: "mango", origin: "malaysia", price: 3} ])
+db.fruits.find().pretty()
+exit

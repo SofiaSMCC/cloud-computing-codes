@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "58063eef-1960-46da-abf9-f088fadb6a00",
+		"name": "api-fruits",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22979805"
+	},
+	"item": [
+		{
+			"name": "Consultar frutas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"database\":\"food\",\r\n    \"collection\":\"fruits\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://lb-prod-1436436745.us-east-1.elb.amazonaws.com:8001/mongodb",
+					"protocol": "http",
+					"host": [
+						"lb-prod-1436436745",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "8001",
+					"path": [
+						"mongodb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear fruta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"database\":\"food\",\r\n    \"collection\":\"fruits\",\r\n    \"Document\":{\"name\": \"fresa\", \"origin\": \"china\", \"price\": 15.5, \"color\": \"rojo\", \"sabor\": \"dulce simple\"}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://lb-prod-1436436745.us-east-1.elb.amazonaws.com:8001/mongodb",
+					"protocol": "http",
+					"host": [
+						"lb-prod-1436436745",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "8001",
+					"path": [
+						"mongodb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar fruta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"database\":\"food\",\r\n    \"collection\":\"fruits\",\r\n    \"Filter\":{\"name\": \"mango\"},\r\n    \"DataToBeUpdated\":{\"origin\": \"peru\", \"price\": 20}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://44.203.143.5:8001/mongodb",
+					"protocol": "http",
+					"host": [
+						"44",
+						"203",
+						"143",
+						"5"
+					],
+					"port": "8001",
+					"path": [
+						"mongodb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar fruta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"database\":\"food\",\r\n    \"collection\":\"fruits\",\r\n    \"Filter\":{\"name\": \"apple\"}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://44.203.143.5:8001/mongodb",
+					"protocol": "http",
+					"host": [
+						"44",
+						"203",
+						"143",
+						"5"
+					],
+					"port": "8001",
+					"path": [
+						"mongodb"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

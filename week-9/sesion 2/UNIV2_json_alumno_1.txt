@@ -1,0 +1,17 @@
+{
+  "tenant_id": "UNIV2",
+  "alumno_id": "A2020F4565",
+  "alumno_datos": {
+	"nombre": "Pedro Luna",
+	"sexo": "M",
+	"fecha_nac": "2004-12-04",
+	"celular": "999736371",
+	"domicilio": {
+		"direcc": "Av. El Polo 1767",
+		"distrito": "Monterrico",
+		"provincia": "Lima",
+		"departamento": "Lima",
+		"pais": "Perú"
+	} 
+  }
+}
